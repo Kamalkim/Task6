@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <body>
+    <form id="uForm">
+      <input id="fullName" type="text" placeholder="Enter full name" required />
+      <button>Generate</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+      document.getElementById('uForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const full = document.getElementById('fullName').value.trim();
+        const len = full.replace(/\s+/g, '').length; // ignore spaces
+        // If you want to include spaces in the length, use: const len = full.length;
+        const username = `@${full}${len}`;
+        document.getElementById('result').textContent = `Username: ${username}`;
+        console.log(username);
+      });
+    </script>
+  </body>
+</html>
